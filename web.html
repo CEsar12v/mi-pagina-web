@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUNTO TEC</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Estilos del encabezado */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0044cc;
+            color: white;
+            padding: 10px 20px;
+            position: relative;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Menú y buscador a la izquierda */
+        .left-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-button {
+            background-color: white;
+            color: #0044cc;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+        .container button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.container button:hover {
+    background-color: #003399;
+    transform: scale(1.1);
+}
+
+
+        .menu-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .menu-dropdown {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 10;
+        }
+
+        .menu-dropdown a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #0044cc;
+            font-size: 1rem;
+        }
+
+        .menu-dropdown a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .search-container input {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .search-container button {
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .search-container button img {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Ícono de usuario a la derecha */
+        .user-icon {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .user-icon img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+
+        /* Contenedores principales */
+        .containers {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+            gap: 20px;
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .container img {
+            width: 100%;
+            height: auto;
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+
+        .container button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #0044cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .container button:hover {
+            background-color: #003399;
+        }
+
+        /* Estilo para los videos */
+        .video-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px;
+            gap: 20px;
+        }
+
+        .video-container {
+            flex: 1;
+            text-align: center;
+        }
+
+        .video-container h2 {
+            margin-bottom: 10px;
+        }
+
+        video {
+            max-width: 90%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Estilos del pie de página */
+        footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="left-section">
+            <button class="menu-button" onclick="toggleMenu()">☰ Menú</button>
+            <div id="menuDropdown" class="menu-dropdown">
+                <a href="#" onclick="showInfo()">Información</a>
+                <a href="#" onclick="showContact()">Contacto</a>
+            </div>
+            <header>
+    <div class="header-container">
+        <div id="clock" class="clock"></div>
+    </div>
+</header>
+
+<style>
+    /* Estilo para el encabezado */
+  <header>
+    <div class="header-container">
+        <h1>Mi Página Web</h1>
+        <div id="clock" class="clock"></div>
+    </div>
+</header>
+
+<style>
+    /* Estilo para el encabezado */
+    header {
+        background-color: #0044cc;
+        padding: 15px;
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: space-between; /* Espaciado entre el título y el reloj */
+        align-items: center;
+    }
+
+    /* Contenedor para el título y el reloj */
+    .header-container {
+        display: flex;
+        justify-content: space-between; /* Hace que el título y el reloj se separen */
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Estilo para el reloj */
+    .clock {
+        font-size: 1.5rem;  /* Ajustado el tamaño para un encabezado más limpio */
+        color: white;
+        font-weight: bold;
+        text-align: right;
+    }
+
+    /* Asegúrate de que el reloj no se solape */
+    @media (max-width: 768px) {
+        .clock {
+            font-size: 1.2rem; /* Reducido el tamaño en pantallas más pequeñas */
+        }
+    }
+</style>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock(); // Llamamos una vez al principio para que aparezca el reloj inmediatamente
+</script>
+
+
+            <div class="search-container">
+                <input type="text" placeholder="Buscar...">
+                <button><img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Buscar"></button>
+            </div>
+        </div>
+
+        <h1><img src="logo.png" alt="Logo" style="vertical-align: middle; width: 50px; height: 50px; margin-right: 10px;">PUNTO TEC</h1>
+        <div class="user-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Usuario">
+            <span>Iniciar Sesión</span>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <div class="containers">
+            <div class="container">
+                <img src="novato1.jpg" alt="Principiante">
+                <p>PRINCIPIANTE</p>
+                <button onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSe_Ra9qsX47bh5Mm6wU4yzTchcvLOB4YQbVs-Kp3VNY5VSOhg/viewform?usp=sf_link.html'">Iniciar</button>
+            </div>
+            <div class="container">
+                <img src="medio.jpg" alt="Intermedio">
+                <p>INTERMEDIO</p>
+                <button onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSdmf9i9CNS9SyTv1R9AbDJwiBFA03Dct-MncZRp5Ty_1_Rt-A/viewform?usp=sf_link.html'">Iniciar</button>
+            </div>
+            <div class="container">
+                <img src="experto.jpg" alt="Experto">
+                <p>EXPERTO</p>
+                <button onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSecXtHuo5Y2X8sNTL6DHsgnZOScGJK_JnSFQdi9nE4pvALV7Q/viewform?usp=sf_link.html'">Iniciar</button>
+            </div>
+        </div>
+        <button id="backToTop" class="back-to-top">↑</button>
+
+<style>
+    .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #0044cc;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+    }
+    .back-to-top:hover {
+        background-color: #003399;
+    }
+</style>
+
+<script>
+    window.onscroll = function() {
+        const button = document.getElementById('backToTop');
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            button.style.display = 'block';
+        } else {
+            button.style.display = 'none';
+        }
+    };
+
+    document.getElementById('backToTop').addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+<section class="subscription-section">
+    <h2>¡Suscríbete para recibir novedades!</h2>
+    <form>
+        <input type="email" placeholder="Ingresa tu correo" required>
+        <button type="submit">Suscribirse</button>
+    </form>
+</section>
+
+<style>
+    .subscription-section {
+        text-align: center;
+        padding: 20px;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+    .subscription-section h2 {
+        color: #0044cc;
+    }
+    .subscription-section form {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .subscription-section input {
+        padding: 10px;
+        margin-right: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    .subscription-section button {
+        padding: 10px 20px;
+        background-color: #0044cc;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<div id="loginModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; border-radius: 10px; padding: 20px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000;">
+    <h2>Iniciar Sesión</h2>
+    <form onsubmit="handleLogin(event)">
+        <div style="margin-bottom: 10px;">
+            <label for="username">Usuario:</label><br>
+            <input type="text" id="username" name="username" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label for="password">Contraseña:</label><br>
+            <input type="password" id="password" name="password" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+        </div>
+        <button type="submit" style="padding: 10px 20px; background-color: #0044cc; color: white; border: none; border-radius: 5px; cursor: pointer;">Entrar</button>
+        <button type="button" onclick="closeLoginModal()" style="padding: 10px 20px; background-color: #ccc; color: black; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">Cancelar</button>
+    </form>
+</div>
+<div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="closeLoginModal()"></div>
+
+<script>
+    const userIcon = document.querySelector('.user-icon');
+    const userNameDisplay = userIcon.querySelector('span');
+    
+    userIcon.addEventListener('click', openLoginModal);
+
+    function openLoginModal() {
+        document.getElementById('loginModal').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    function closeLoginModal() {
+        document.getElementById('loginModal').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+
+    function handleLogin(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username.trim() && password === '1234') { // Contraseña estática de ejemplo
+            alert('Inicio de sesión exitoso. Bienvenido, ' + username + '!');
+            userNameDisplay.textContent = username; // Mostrar el nombre del usuario
+            closeLoginModal();
+        } else {
+            alert('Usuario o contraseña incorrectos. Inténtalo de nuevo.');
+        }
+    }
+</script>
+<!-- Sección de Noticias Tecnológicas -->
+<section class="news-section">
+    <h2>QUIERES SABER MAS ?......</h2>
+    <div class="news-container">
+        <div class="news-item">
+            <img src="arti.jpg" alt="Noticia 1">
+            <h3>El Regreso de la Realidad Virtual (VR) con Nuevos Dispositivos</h3>
+            <p>La inteligencia artificial está revolucionando la manera en que interactuamos con la tecnología. Descubre las últimas innovaciones en este campo y cómo afectarán nuestra vida cotidiana.</p>
+            <a href="https://binaryboxstudios.es/realidad-virtual-nuevos-dispositivos/" target="_blank">Leer más</a>
+        </div>
+        <div class="news-item">
+            <img src="w.jpg" alt="Noticia 2">
+            <h3>Nuevas Funcionalidades en Sistemas Operativos</h3>
+            <p>Los sistemas operativos más recientes están incorporando nuevas funcionalidades, como mejoras en la seguridad, personalización avanzada y mayor compatibilidad con tecnologías emergentes.</p>
+            <a href="https://www.xataka.com/aplicaciones/microsoft-trabaja-windows-12-sistema-operativo-que-mira-al-pasado-como-al-futuro" target="_blank">Leer más</a>
+        </div>
+        <div class="news-item">
+            <img src="ss.jpg" alt="Noticia 3">
+            <h3> "Nuevo software de ciberseguridad utiliza IA para predecir y prevenir amenazas"</h3>
+            <p>El software de seguridad ahora está incorporando inteligencia artificial para detectar patrones de ataques cibernéticos antes de que ocurran, mejorando la protección de datos a nivel global.</p>
+            <a href="https://www.cybereop.com/blog/innovaciones-y-herramientas-emergentes-en-ciberseguridad-para-empresas.html" target="_blank">Leer más</a>
+        </div>
+    </div>
+</section>
+<div id="notification" class="notification">
+    <p>¡Nuevo curso disponible! Haz clic aquí para más información.</p>
+    <button onclick="closeNotification()">Cerrar</button>
+</div>
+
+<style>
+    .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #0044cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: none;
+    }
+    .notification button {
+        background-color: transparent;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+</style>
+
+<script>
+    setTimeout(() => {
+        document.getElementById('notification').style.display = 'block';
+    }, 3000); // La notificación aparecerá después de 3 segundos.
+
+    function closeNotification() {
+        document.getElementById('notification').style.display = 'none';
+    }
+</script>
+<!-- Modal de bienvenida -->
+<div id="welcomeModal" class="modal">
+    <div class="modal-content">
+        <h2>Bienvenido a nuestra página</h2>
+        <p>Nos alegra que estés aquí. ¡Explora nuestras novedades!</p>
+        <button id="closeModal">Cerrar</button>
+    </div>
+</div>
+
+<style>
+    /* Estilo del modal */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .modal-content {
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 5px;
+    }
+</style>
+
+<script>
+    // Mostrar el modal al cargar la página
+    window.addEventListener('load', function () {
+        document.getElementById('welcomeModal').style.display = 'flex';
+    });
+
+    // Cerrar el modal
+    document.getElementById('closeModal').addEventListener('click', function () {
+        document.getElementById('welcomeModal').style.display = 'none';
+    });
+</script>
+
+<style>
+    /* Estilos para la sección de noticias tecnológicas */
+    .news-section {
+        margin: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .news-section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #0044cc;
+    }
+
+    .news-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .news-item {
+        width: 30%;
+        background-color: white;
+        border-radius: 5px;
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .news-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .news-item h3 {
+        margin: 15px 0;
+        color: #333;
+    }
+
+    .news-item p {
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .news-item a {
+        color: #0044cc;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    .news-item a:hover {
+        text-decoration: underline;
+    }
+</style>
+<!-- Botón para alternar el modo -->
+<button id="themeToggle">Cambiar Tema</button>
+
+<style>
+    :root {
+        --bg-color: #ffffff;
+        --text-color: #000000;
+    }
+
+    [data-theme="dark"] {
+        --bg-color: #121212;
+        --text-color: #ffffff;
+    }
+
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+    }
+</style>
+
+<script>
+    const toggleButton = document.getElementById('themeToggle');
+    toggleButton.addEventListener('click', () => {
+        document.documentElement.dataset.theme =
+            document.documentElement.dataset.theme === 'dark' ? '' : 'dark';
+    });
+</script>
+<canvas id="starsCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></canvas>
+
+<script>
+    const canvas = document.getElementById('starsCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const stars = Array.from({ length: 100 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2,
+    }));
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach((star) => {
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+            ctx.fillStyle = "white";
+            ctx.fill();
+        });
+
+        for (let i = 0; i < stars.length - 1; i++) {
+            for (let j = i + 1; j < stars.length; j++) {
+                if (
+                    Math.hypot(stars[i].x - stars[j].x, stars[i].y - stars[j].y) < 100
+                ) {
+                    ctx.beginPath();
+                    ctx.moveTo(stars[i].x, stars[i].y);
+                    ctx.lineTo(stars[j].x, stars[j].y);
+                    ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(draw);
+    }
+    draw();
+</script>
+
+        <!-- Videos -->
+        <div class="video-section">
+            <div class="video-container">
+                <h2>Aprende con este video</h2>
+                <video controls>
+                    <source src="video.mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+            </div>
+            <div class="video-container">
+                <h2>Otro video para ti</h2>
+                <video controls>
+                    <source src="componentes.mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>Visitas: <span id="viewCounter">0</span></p>
+        <p>&copy; 2024 Punto Tec. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menuDropdown');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function showInfo() {
+            alert('🔧💻 ¡Descubre el mundo de la tecnología con Punto Tec! Aprende desde cero o perfecciona tus habilidades en hardware y software con nuestro curso práctico y dinámico: armado y reparación de PCs, instalación y configuración de software, y solución de problemas técnicos. Ideal para principiantes y entusiastas de la tecnología. ¡Transforma tu pasión en conocimiento útil! 📅 Cupos limitados, inscríbete hoy y da el primer paso hacia el futuro tecnológico. 📲 ¡Escríbenos ya! 🚀✨');
+        }
+
+        function showContact() {
+            alert('Puedes contactarnos al correo: puntotec_oficial@gmail.com. o al 0969522135');
+        }
+
+        let views = localStorage.getItem('views') || 0;
+        views++;
+        localStorage.setItem('views', views);
+        document.getElementById('viewCounter').textContent = views;
+    </script>
+</body>
+</html>
